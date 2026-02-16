@@ -1,6 +1,6 @@
 # raspi-thermal-printer
 
-[python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/)
+[python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/)
 
 ## Initial Setup
 
@@ -19,3 +19,4 @@ sudo apt install code
 ## Resources to when learning
 
 - [Mouse Control With Just a Webcam and Python. Here’s How It Works. By Divya Rameshkumar Patel](https://medium.com/@divya330369/built-a-minority-report-style-interface-with-just-a-webcam-and-python-heres-how-it-works-7d2e61d7360d)
+- [I Turned AI Into a Tiny Fortune-Telling Machine with Raspberry Pi. By Cassie Serendipity](https://medium.com/@cassie_serendipity/i-turned-ai-into-a-tiny-fortune-telling-machine-with-raspberry-pi-a33255704b3a)
