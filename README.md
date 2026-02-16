@@ -5,9 +5,7 @@
 ## Initial Setup
 
 ```bash
-sudo apt update
-sudo apt upgrade -y
-sudo apt install libusb-1.0-0-dev
+sudo apt update && sudo apt full-upgrade -y
 ```
 
 ## Hardware
