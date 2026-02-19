@@ -28,6 +28,8 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="0fe6", ATTRS{idProduct}=="811e", GROUP
 
 ## Learning though frustration
 
+### Printing QR codes
+
 Convert the QR image to a real PIL image before sending it to the printer:
 
 ```python
@@ -55,4 +57,23 @@ img = img.convert("1")
 
 p.image(img)
 p.cut()
+```
+
+### Printing Images
+
+```python
+# Load your image
+img = Image.open("ascii-art-text-light.png")
+img_width, img_height = img.size
+max_width = 576 # Max printable width (use 576px to be safe)
+
+img_resized = img.resize((max_width, img_height), resample=Image.Resampling.LANCZOS)
+img_resized = img_resized.convert("1")
+
+# Use EscposImage for splitting or other ops
+esc_img = EscposImage(img_resized)
+
+# **pass the underlying PIL image** to printer, not EscposImage
+printer.image(esc_img.img_original)  # pass PIL.Image.Image
+printer.ln(5)
 ```
