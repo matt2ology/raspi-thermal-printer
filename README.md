@@ -24,3 +24,34 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="0fe6", ATTRS{idProduct}=="811e", GROUP
 
 - [Mouse Control With Just a Webcam and Python. Here’s How It Works. By Divya Rameshkumar Patel](https://medium.com/@divya330369/built-a-minority-report-style-interface-with-just-a-webcam-and-python-heres-how-it-works-7d2e61d7360d)
 - [I Turned AI Into a Tiny Fortune-Telling Machine with Raspberry Pi. By Cassie Serendipity](https://medium.com/@cassie_serendipity/i-turned-ai-into-a-tiny-fortune-telling-machine-with-raspberry-pi-a33255704b3a)
+
+## Learning though frustration
+
+Convert the QR image to a real PIL image before sending it to the printer:
+
+```python
+from escpos import printer
+import qrcode
+
+p = printer.Usb(idVendor=0x0fe6, idProduct=0x811e, interface=0, in_ep=0x81, out_ep=0x01)
+
+p.text("Hello World\n")
+
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data("Some data")
+qr.make(fit=True)
+
+# IMPORTANT: Convert to real PIL image
+img = qr.make_image(fill_color="black", back_color="white").get_image()
+
+# Convert to monochrome (thermal printers prefer 1-bit images)
+img = img.convert("1")
+
+p.image(img)
+p.cut()
+```
