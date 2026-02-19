@@ -1,6 +1,7 @@
 # raspi-thermal-printer
 
-[python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/)
+- [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/)
+- [Text to ASCII Art Generator: Create ASCII Art from Text](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false)
 
 ## Initial Setup
 
